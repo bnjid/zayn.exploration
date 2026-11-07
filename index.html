@@ -70,6 +70,36 @@ footer{background:#075d9c}
 @media(max-width:900px){.category-grid,.card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-panel{grid-template-columns:1fr 1fr;padding:30px}.hero-art{transform:scale(.9)}}
 @media(max-width:600px){.wrap{width:calc(100% - 26px)}.nav{height:68px}.brand{font-size:19px}.brand-mark{width:45px;height:45px;font-size:24px}.hero{padding:15px 0 20px}.hero-panel{grid-template-columns:1fr;padding:25px 21px;border-radius:27px}.hero h1{font-size:43px}.hero p{font-size:15px}.hero-art{min-height:205px;transform:none;margin-top:5px}.animal-giraffe{font-size:76px}.animal-elephant{font-size:84px}.animal-lion{font-size:72px}.animal-monkey{font-size:62px}.animal-tiger{font-size:52px}.hero-leaf{font-size:55px}.category-grid{grid-template-columns:1fr 1fr;gap:10px}.category{min-height:130px;padding:12px;gap:7px;flex-direction:column;align-items:flex-start}.cat-icon{height:55px;flex-basis:55px;width:55px;font-size:48px}.category strong{font-size:14px}.category small{font-size:11px;margin-top:5px}.section h2{font-size:25px}.card-grid{grid-template-columns:1fr 1fr}.quiz-panel{grid-template-columns:1fr;padding:20px}.quiz-intro{padding-left:78px;min-height:120px}.quiz-mascot{font-size:65px}.quiz-intro h2{font-size:24px}.navlinks{background:#0874bb}.navlinks a{color:#fff}.navlinks a:hover{background:#fff;color:#12347e}}
 
+
+/* Interactive learning detail experience */
+.detail-modal-wide{width:min(760px,100%);max-height:min(88vh,900px);overflow:auto}
+.detail-hero{display:grid;grid-template-columns:210px 1fr;background:linear-gradient(120deg,#e5f1ff,#cfe3ff);min-height:190px;align-items:center;padding:18px 28px;gap:20px}
+.detail-hero .detail-art{height:155px;border-radius:24px;font-size:92px;background:transparent!important}
+.detail-hero-copy h3{font-size:29px;margin:9px 0 7px;color:#193486}
+.detail-hero-copy p{font-size:15px;line-height:1.6;color:#344b8b;margin:0}
+.detail-content{padding:20px 24px 18px}
+.detail-tabs{display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid #e7eef8;padding-bottom:13px}
+.detail-tab{border:1px solid #dce8f7;background:#f7faff;color:#39527e;border-radius:99px;padding:10px 14px;font-weight:900;font-size:13px}
+.detail-tab.active{background:#3979e8;border-color:#3979e8;color:#fff}
+.detail-panel{min-height:180px;padding:18px 2px 12px;color:#344b8b}
+.learn-list{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.learn-list li{display:flex;gap:10px;align-items:flex-start;background:#f4f8ff;border-radius:13px;padding:12px 14px;line-height:1.5}
+.learn-list li span{font-size:19px}
+.fact-card{background:linear-gradient(120deg,#fff7d9,#fff0ad);border:1px solid #ffe49a;border-radius:17px;padding:17px;color:#6b4b00;line-height:1.65}
+.fact-card strong{display:block;margin-bottom:5px;font-size:15px}
+.challenge-question{font-size:17px;font-weight:900;color:#1a3284;margin:0 0 13px}
+.challenge-options{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.challenge-option{border:1px solid #dce8f7;background:#fff;border-radius:13px;padding:12px;text-align:left;font-weight:800;color:#29477e}
+.challenge-option:hover{background:#eef5ff;border-color:#8bb5f5}
+.challenge-option.correct{background:#e7f8ed;border-color:#69c99b;color:#17653c}
+.challenge-option.incorrect{background:#fff0f2;border-color:#f3a1ae;color:#a22b40}
+.challenge-feedback{min-height:26px;margin-top:12px;font-weight:900;font-size:13px}
+.detail-navigation{border-top:1px solid #e8eef5;padding-top:14px;display:flex;align-items:center;justify-content:space-between;gap:10px;color:#71839b;font-size:12px;font-weight:900}
+.detail-prev,.detail-next{border:0;border-radius:12px;padding:11px 14px;font-weight:900}
+.detail-prev{background:#edf3fb;color:#37517a}.detail-next{background:#3979e8;color:#fff}
+.detail-prev:disabled,.detail-next:disabled{opacity:.35;cursor:not-allowed}
+@media(max-width:600px){.detail-modal-wide{max-height:92vh}.detail-hero{grid-template-columns:1fr;padding:23px 20px 17px;gap:5px;text-align:center}.detail-hero .detail-art{height:105px;font-size:74px}.detail-hero-copy h3{font-size:24px}.detail-hero-copy p{font-size:13px}.detail-content{padding:16px}.detail-tab{font-size:11px;padding:9px 10px}.challenge-options{grid-template-columns:1fr}.detail-navigation{font-size:10px}.detail-prev,.detail-next{padding:10px;font-size:11px}}
+
 </style>
 </head>
 <body>
@@ -103,10 +133,18 @@ footer{background:#075d9c}
 </div></div></section>
 </main>
 <div class="modal-backdrop" id="detailBackdrop" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
- <div class="detail-modal">
+ <div class="detail-modal detail-modal-wide">
   <button class="detail-close" id="detailClose" type="button" aria-label="Tutup">×</button>
-  <div class="detail-art" id="detailArt"></div>
-  <div class="detail-content"><span class="tag" id="detailTag"></span><h3 id="detailTitle"></h3><p id="detailDescription"></p><div class="detail-hint">Terus jelajahi materi lainnya di Zayn Exploration! 🌟</div></div>
+  <div class="detail-hero"><div class="detail-art" id="detailArt"></div><div class="detail-hero-copy"><span class="tag" id="detailTag"></span><h3 id="detailTitle"></h3><p id="detailDescription"></p></div></div>
+  <div class="detail-content">
+   <div class="detail-tabs" role="tablist" aria-label="Bagian materi">
+    <button class="detail-tab active" type="button" data-detail-tab="kenali" role="tab" aria-selected="true">📘 Kenali Materi</button>
+    <button class="detail-tab" type="button" data-detail-tab="unik" role="tab" aria-selected="false">✨ Fakta Unik</button>
+    <button class="detail-tab" type="button" data-detail-tab="tantangan" role="tab" aria-selected="false">🎯 Tantangan</button>
+   </div>
+   <div class="detail-panel" id="detailPanel" role="tabpanel"></div>
+   <div class="detail-navigation"><button class="detail-prev" id="detailPrev" type="button">← Sebelumnya</button><span id="detailPosition">Materi 1</span><button class="detail-next" id="detailNext" type="button">Materi berikutnya →</button></div>
+  </div>
  </div>
 </div>
 <footer><div class="wrap foot"><div><strong>🧭 Zayn Exploration</strong><p>Belajar • Menjelajah • Bermain</p></div><p>© <span id="year"></span> Zayn Exploration. Terus semangat belajar! 🌟</p></div></footer>
@@ -132,26 +170,54 @@ const items=[
 let activeFilter="Semua";
 function renderCards(){const q=document.getElementById("searchInput").value.toLowerCase().trim();const filtered=items.filter(x=>(activeFilter==="Semua"||x.c===activeFilter)&&[x.n,x.c,x.d,x.t].join(" ").toLowerCase().includes(q));const grid=document.getElementById("cardGrid");grid.innerHTML=filtered.length?filtered.map(x=>'<article class="info-card" tabindex="0" role="button" data-item="'+items.indexOf(x)+'" aria-label="Buka detail '+x.n+'"><div class="info-art" style="background:'+x.bg+'">'+x.e+'</div><div class="info-body"><span class="tag">'+x.c+' · '+x.t+'</span><h3>'+x.n+'</h3><p>'+x.d+'</p><p style="margin-top:9px;color:#3979e8;font-weight:800">Ketuk untuk detail →</p></div></article>').join(""):'<div class="empty">Belum ada materi yang cocok. Coba kata kunci lain ya! 🔎</div>'}
 
-function openItemDetail(index){
- const item=items[index]; if(!item)return;
- document.getElementById("detailArt").textContent=item.e;
- document.getElementById("detailArt").style.background=item.bg;
- document.getElementById("detailTag").textContent=item.c+" · "+item.t;
- document.getElementById("detailTitle").textContent=item.n;
- document.getElementById("detailDescription").textContent=item.d;
- document.getElementById("detailBackdrop").classList.add("open");
- document.getElementById("detailClose").focus();
+let currentVisibleItems=[],currentDetailItems=[],currentDetailPosition=0,currentDetailTab="kenali",detailChallengeAnswered=false;
+const detailLessons={
+"Gajah":{learn:["Gajah adalah mamalia terbesar yang hidup di darat.","Belalai membantu gajah mengambil makanan, minum, dan berkomunikasi.","Gajah hidup berkelompok dan memiliki ingatan yang kuat."],fact:"Gajah dapat menggunakan belalainya untuk mengambil benda kecil sekaligus menyedot air. Belalai memiliki ribuan otot yang membuatnya sangat kuat dan lentur.",q:"Bagian tubuh gajah yang digunakan untuk mengambil makanan dan minum adalah ...",opts:["Ekor","Belalai","Telinga","Gading"],a:1,why:"Benar! Belalai membantu gajah mengambil makanan dan menyedot air."},
+"Kupu-kupu":{learn:["Kupu-kupu termasuk kelompok serangga dan memiliki enam kaki.","Siklus hidupnya terdiri atas telur, larva (ulat), pupa (kepompong), dan dewasa.","Kupu-kupu membantu penyerbukan saat mengisap nektar bunga."],fact:"Sayap kupu-kupu sebenarnya ditutupi sisik-sisik sangat kecil. Susunan sisik dan pigmennya membantu menghasilkan warna yang indah.",q:"Urutan metamorfosis kupu-kupu yang benar adalah ...",opts:["Telur–ulat–kepompong–dewasa","Ulat–telur–dewasa–kepompong","Kepompong–telur–ulat–dewasa","Telur–kepompong–ulat–dewasa"],a:0,why:"Tepat! Kupu-kupu berkembang melalui tahap telur, ulat, kepompong, lalu dewasa."},
+"Penyu":{learn:["Penyu adalah reptil yang menghabiskan sebagian besar hidupnya di laut.","Penyu bernapas dengan paru-paru sehingga harus naik ke permukaan air.","Penyu betina bertelur di pantai berpasir."],fact:"Penyu dapat bermigrasi melintasi lautan dalam jarak yang sangat jauh. Karena itu, menjaga pantai dan laut tetap bersih sangat penting bagi kelangsungan hidupnya.",q:"Penyu bernapas menggunakan ...",opts:["Insang","Kulit","Paru-paru","Trakea"],a:2,why:"Benar! Penyu adalah reptil dan bernapas menggunakan paru-paru."},
+"Lumba-lumba":{learn:["Lumba-lumba adalah mamalia, bukan ikan.","Lumba-lumba bernapas dengan paru-paru melalui lubang sembur di kepala.","Lumba-lumba menggunakan bunyi untuk berkomunikasi dan menemukan benda."],fact:"Lumba-lumba menggunakan echolocation, yaitu pantulan bunyi, untuk membantu mengenali lingkungan di bawah air.",q:"Mengapa lumba-lumba harus naik ke permukaan air?",opts:["Untuk bernapas","Untuk mengganti sisik","Untuk mencari pasir","Untuk mengeringkan sirip"],a:0,why:"Betul! Lumba-lumba mengambil udara melalui lubang sembur di permukaan."},
+"Bunga Matahari":{learn:["Bunga matahari dikenal dengan bunga besar berwarna kuning.","Biji bunga matahari dapat diolah menjadi makanan.","Tanaman memerlukan air, cahaya matahari, udara, dan unsur hara untuk tumbuh."],fact:"Bunga matahari muda dapat menunjukkan gerak mengikuti arah matahari. Gerak ini dikenal sebagai heliotropisme.",q:"Bagian bunga matahari yang dapat diolah menjadi kuaci adalah ...",opts:["Akar","Batang","Biji","Daun"],a:2,why:"Hebat! Kuaci berasal dari biji bunga matahari."},
+"Pohon Mangga":{learn:["Pohon mangga merupakan tumbuhan berkayu yang dapat hidup bertahun-tahun.","Buah mangga mengandung vitamin, termasuk vitamin C.","Akar membantu menyerap air dan menopang tumbuhan."],fact:"Ada banyak varietas mangga dengan bentuk, aroma, rasa, dan warna yang berbeda. Mangga tumbuh baik di wilayah beriklim tropis.",q:"Bagian pohon yang menyerap air dari tanah adalah ...",opts:["Bunga","Akar","Buah","Daun"],a:1,why:"Tepat! Akar menyerap air dan mineral dari tanah."},
+"Anggrek":{learn:["Anggrek adalah kelompok tumbuhan berbunga dengan bentuk yang beragam.","Sebagian anggrek hidup menempel pada pohon sebagai epifit.","Akar anggrek tertentu dapat membantu menyerap uap air dari udara."],fact:"Anggrek epifit menempel pada batang atau cabang pohon untuk mendapatkan tempat hidup. Mereka bukan parasit yang mengambil makanan dari pohon inangnya.",q:"Anggrek epifit biasanya tumbuh ...",opts:["Menempel pada pohon","Di dalam batu","Di dasar laut","Tanpa akar"],a:0,why:"Benar! Anggrek epifit menggunakan pohon sebagai tempat menempel."},
+"Padi":{learn:["Padi merupakan tanaman pangan yang menghasilkan gabah.","Gabah diolah untuk memisahkan sekam sehingga diperoleh beras.","Beras menjadi makanan pokok bagi banyak masyarakat Indonesia."],fact:"Padi termasuk keluarga rumput-rumputan (Poaceae). Satu tanaman padi dapat menghasilkan banyak bulir dalam satu malai.",q:"Bahan makanan yang dihasilkan tanaman padi adalah ...",opts:["Jagung","Beras","Kentang","Kedelai"],a:1,why:"Benar! Padi dipanen sebagai gabah, lalu diolah menjadi beras."},
+"Jakarta":{learn:["Jakarta merupakan wilayah khusus setingkat provinsi di Indonesia.","Jakarta dikenal sebagai pusat bisnis, pendidikan, dan kegiatan pemerintahan.","Kota ini memiliki kawasan bersejarah seperti Kota Tua."],fact:"Jakarta memiliki beragam transportasi publik, antara lain TransJakarta, MRT, LRT, dan KRL Commuter Line.",q:"Jakarta berada di pulau ...",opts:["Sumatra","Kalimantan","Jawa","Sulawesi"],a:2,why:"Betul! Jakarta terletak di pesisir utara Pulau Jawa."},
+"Surabaya":{learn:["Surabaya adalah ibu kota Provinsi Jawa Timur.","Surabaya dikenal sebagai Kota Pahlawan karena sejarah perjuangan 10 November 1945.","Hewan hiu dan buaya menjadi simbol yang terkenal dari kota ini."],fact:"Monumen Tugu Pahlawan dibangun untuk mengenang perjuangan arek-arek Suroboyo. Hari Pahlawan diperingati setiap 10 November.",q:"Surabaya merupakan ibu kota provinsi ...",opts:["Jawa Tengah","Jawa Timur","Jawa Barat","Bali"],a:1,why:"Benar! Surabaya adalah ibu kota Provinsi Jawa Timur."},
+"Bali":{learn:["Bali adalah provinsi kepulauan di Indonesia.","Bali dikenal dengan seni, tradisi, pantai, dan keindahan alamnya.","Denpasar merupakan ibu kota Provinsi Bali."],fact:"Subak adalah sistem pengelolaan irigasi tradisional di Bali yang mencerminkan kerja sama masyarakat dan memiliki nilai budaya.",q:"Ibu kota Provinsi Bali adalah ...",opts:["Singaraja","Ubud","Denpasar","Kuta"],a:2,why:"Tepat! Denpasar adalah ibu kota Provinsi Bali."},
+"Papua":{learn:["Papua terletak di bagian timur Indonesia.","Papua memiliki bentang alam beragam, dari pesisir hingga pegunungan.","Keanekaragaman budaya dan bahasa menjadi kekayaan masyarakat Papua."],fact:"Puncak Jaya di Papua merupakan salah satu puncak tertinggi di kawasan kepulauan Asia Tenggara dan memiliki lingkungan pegunungan yang unik.",q:"Papua terletak di bagian ... Indonesia.",opts:["Barat","Utara","Selatan","Timur"],a:3,why:"Benar! Papua berada di bagian timur Indonesia."},
+"Kereta Api":{learn:["Kereta api bergerak di atas rel yang menjadi jalurnya.","Kereta dapat mengangkut banyak penumpang atau barang.","Lokomotif menghasilkan tenaga untuk menarik atau mendorong rangkaian kereta."],fact:"Roda kereta api memiliki bentuk khusus yang membantu roda tetap mengikuti jalur rel saat bergerak.",q:"Kereta api berjalan di atas ...",opts:["Jalan raya","Rel","Air","Awan"],a:1,why:"Benar! Kereta api berjalan di atas rel."},
+"Kapal Laut":{learn:["Kapal digunakan untuk mengangkut orang atau barang melalui air.","Kapal mengapung karena gaya apung air.","Kapal memiliki berbagai bentuk sesuai fungsi, misalnya kapal penumpang dan kapal barang."],fact:"Kapal baja yang sangat berat tetap dapat mengapung karena bentuk lambungnya membuat kapal memindahkan air dalam jumlah besar.",q:"Kapal laut bergerak melalui ...",opts:["Udara","Rel","Perairan","Jalan tol"],a:2,why:"Tepat! Kapal laut berlayar di perairan."},
+"Pesawat":{learn:["Pesawat terbang menggunakan sayap untuk menghasilkan gaya angkat.","Mesin membantu pesawat bergerak maju di udara.","Pilot mengendalikan pesawat selama penerbangan."],fact:"Sayap pesawat dirancang agar aliran udara menghasilkan perbedaan tekanan dan gaya aerodinamika yang membantu pesawat terangkat.",q:"Kendaraan yang digunakan untuk bepergian melalui udara adalah ...",opts:["Kapal","Sepeda","Kereta","Pesawat"],a:3,why:"Benar! Pesawat digunakan untuk transportasi udara."},
+"Sepeda":{learn:["Sepeda umumnya memiliki dua roda dan digerakkan dengan kayuhan.","Rantai meneruskan tenaga dari pedal ke roda belakang.","Menggunakan helm membantu melindungi kepala saat bersepeda."],fact:"Sepeda mengubah tenaga kayuhan menjadi gerak putar pada roda melalui pedal, rantai, dan gir.",q:"Bagian sepeda yang diinjak untuk menggerakkan roda adalah ...",opts:["Pedal","Bel","Lampu","Sadel"],a:0,why:"Betul! Pedal menerima tenaga kayuhan dari kaki."}
+};
+function renderCards(){const q=document.getElementById("searchInput").value.toLowerCase().trim();const filtered=items.filter(x=>(activeFilter==="Semua"||x.c===activeFilter)&&[x.n,x.c,x.d,x.t].join(" ").toLowerCase().includes(q));currentVisibleItems=filtered;const grid=document.getElementById("cardGrid");grid.innerHTML=filtered.length?filtered.map(x=>'<article class="info-card" tabindex="0" role="button" data-item="'+items.indexOf(x)+'" aria-label="Buka materi '+x.n+'"><div class="info-art" style="background:'+x.bg+'">'+x.e+'</div><div class="info-body"><span class="tag">'+x.c+' · '+x.t+'</span><h3>'+x.n+'</h3><p>'+x.d+'</p><p style="margin-top:9px;color:#3979e8;font-weight:800">Jelajahi materi →</p></div></article>').join(""):'<div class="empty">Belum ada materi yang cocok. Coba kata kunci lain ya! 🔎</div>'}
+function renderDetailPanel(){
+ const item=currentDetailItems[currentDetailPosition],lesson=detailLessons[item.n];const panel=document.getElementById("detailPanel");
+ document.querySelectorAll(".detail-tab").forEach(b=>{const active=b.dataset.detailTab===currentDetailTab;b.classList.toggle("active",active);b.setAttribute("aria-selected",String(active));});
+ if(currentDetailTab==="kenali"){panel.innerHTML='<h4 style="margin:0 0 12px;color:#1a3284;font-size:17px">Yuk, kenali '+item.n+'! 📚</h4><ul class="learn-list">'+lesson.learn.map(x=>'<li><span>🌟</span><span>'+x+'</span></li>').join("")+'</ul>';}
+ else if(currentDetailTab==="unik"){panel.innerHTML='<div class="fact-card"><strong>✨ Tahukah kamu?</strong>'+lesson.fact+'</div><p style="margin:14px 2px 0;font-size:13px">Pengetahuan baru bertambah satu! Coba ceritakan fakta ini kepada teman atau keluargamu. 😊</p>';}
+ else {panel.innerHTML='<p class="challenge-question">'+lesson.q+'</p><div class="challenge-options">'+lesson.opts.map((x,i)=>'<button type="button" class="challenge-option" data-challenge-answer="'+i+'">'+String.fromCharCode(65+i)+'. '+x+'</button>').join("")+'</div><div class="challenge-feedback" id="challengeFeedback" aria-live="polite">Pilih jawaban yang menurutmu paling tepat!</div>';}
+ document.getElementById("detailPosition").textContent='Materi '+(currentDetailPosition+1)+' dari '+currentDetailItems.length;
+ document.getElementById("detailPrev").disabled=currentDetailPosition===0;document.getElementById("detailNext").disabled=currentDetailPosition===currentDetailItems.length-1;
+ document.getElementById("detailNext").textContent=currentDetailPosition===currentDetailItems.length-1?"Materi terakhir":"Materi berikutnya →";
 }
-document.getElementById("cardGrid").addEventListener("click",e=>{
- const card=e.target.closest(".info-card"); if(card)openItemDetail(Number(card.dataset.item));
-});
-document.getElementById("cardGrid").addEventListener("keydown",e=>{
- if((e.key==="Enter"||e.key===" ")&&e.target.classList.contains("info-card")){e.preventDefault();openItemDetail(Number(e.target.dataset.item));}
-});
-function closeItemDetail(){document.getElementById("detailBackdrop").classList.remove("open");}
+function openItemDetail(index){
+ const item=items[index];if(!item)return;
+ currentDetailItems=currentVisibleItems.length?currentVisibleItems:[item];currentDetailPosition=Math.max(0,currentDetailItems.findIndex(x=>x===item));currentDetailTab="kenali";
+ document.getElementById("detailArt").textContent=item.e;document.getElementById("detailArt").style.background=item.bg;
+ document.getElementById("detailTag").textContent=item.c+" · "+item.t;document.getElementById("detailTitle").textContent=item.n;document.getElementById("detailDescription").textContent=item.d;
+ renderDetailPanel();document.getElementById("detailBackdrop").classList.add("open");document.body.style.overflow="hidden";document.getElementById("detailClose").focus();
+}
+function closeItemDetail(){document.getElementById("detailBackdrop").classList.remove("open");document.body.style.overflow="";}
+function showAdjacentDetail(direction){const next=currentDetailPosition+direction;if(next<0||next>=currentDetailItems.length)return;const item=currentDetailItems[next];currentDetailPosition=next;currentDetailTab="kenali";document.getElementById("detailArt").textContent=item.e;document.getElementById("detailArt").style.background=item.bg;document.getElementById("detailTag").textContent=item.c+" · "+item.t;document.getElementById("detailTitle").textContent=item.n;document.getElementById("detailDescription").textContent=item.d;renderDetailPanel();}
+document.getElementById("cardGrid").addEventListener("click",e=>{const card=e.target.closest(".info-card");if(card)openItemDetail(Number(card.dataset.item));});
+document.getElementById("cardGrid").addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.classList.contains("info-card")){e.preventDefault();openItemDetail(Number(e.target.dataset.item));}});
 document.getElementById("detailClose").addEventListener("click",closeItemDetail);
 document.getElementById("detailBackdrop").addEventListener("click",e=>{if(e.target.id==="detailBackdrop")closeItemDetail();});
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeItemDetail();});
+document.getElementById("detailPrev").addEventListener("click",()=>showAdjacentDetail(-1));
+document.getElementById("detailNext").addEventListener("click",()=>showAdjacentDetail(1));
+document.querySelector(".detail-tabs").addEventListener("click",e=>{const tab=e.target.closest("[data-detail-tab]");if(!tab)return;currentDetailTab=tab.dataset.detailTab;renderDetailPanel();});
+document.getElementById("detailPanel").addEventListener("click",e=>{const answer=e.target.closest("[data-challenge-answer]");if(!answer)return;const item=currentDetailItems[currentDetailPosition],lesson=detailLessons[item.n],chosen=Number(answer.dataset.challengeAnswer);document.querySelectorAll(".challenge-option").forEach(b=>{b.disabled=true;const n=Number(b.dataset.challengeAnswer);if(n===lesson.a)b.classList.add("correct");else if(n===chosen)b.classList.add("incorrect");});const feedback=document.getElementById("challengeFeedback");feedback.textContent=chosen===lesson.a?"🎉 "+lesson.why:"💡 Belum tepat. "+lesson.why;feedback.style.color=chosen===lesson.a?"#21834f":"#a25b24";});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeItemDetail();if(document.getElementById("detailBackdrop").classList.contains("open")&&e.key==="ArrowRight")showAdjacentDetail(1);if(document.getElementById("detailBackdrop").classList.contains("open")&&e.key==="ArrowLeft")showAdjacentDetail(-1);});
 document.getElementById("searchInput").addEventListener("input",renderCards);
 document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{activeFilter=b.dataset.filter;document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===b));renderCards()}));
 document.querySelectorAll(".category").forEach(b=>b.addEventListener("click",()=>{activeFilter=b.dataset.category;document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x.dataset.filter===activeFilter));document.getElementById("searchInput").value="";renderCards();document.getElementById("materi").scrollIntoView({behavior:"smooth"})}));
