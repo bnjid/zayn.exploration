@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d9f0ff"/><stop offset="1" stop-color="#fff0d8"/></linearGradient><linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1689d4"/><stop offset="1" stop-color="#1454a3"/></linearGradient></defs>
+<rect width="1200" height="630" fill="url(#bg)"/><circle cx="1100" cy="70" r="105" fill="#fff" opacity=".55"/><circle cx="90" cy="580" r="130" fill="#b9e8ff" opacity=".65"/>
+<rect x="34" y="34" width="1132" height="562" rx="48" fill="url(#blue)" stroke="#fff" stroke-width="7"/>
+<path d="M650 596 Q870 360 1200 470 V630 H650Z" fill="#0f4b91" opacity=".55"/><path d="M760 596 Q980 420 1200 510 V630 H760Z" fill="#103e7d" opacity=".55"/>
+<g fill="#ffe17a"><circle cx="95" cy="105" r="8"/><circle cx="1060" cy="125" r="7"/><circle cx="760" cy="90" r="6"/><circle cx="180" cy="500" r="7"/><circle cx="930" cy="530" r="8"/></g>
+<g transform="translate(155 180)"><circle r="63" fill="#ffd65a" stroke="#fff" stroke-width="8"/><path d="M-44 -12 Q0 -54 44 -12 M-48 20 Q0 58 48 20 M0 -55 Q-25 0 0 55 M0 -55 Q25 0 0 55" fill="none" stroke="#1978bd" stroke-width="7" stroke-linecap="round"/><path d="M-12 -5 Q-5 -30 13 -18 Q26 -4 12 17 Q-8 25 -12 -5" fill="#4fc78b"/></g>
+<g font-family="Arial, sans-serif" font-weight="700">
+<text x="245" y="170" font-size="76" fill="#fff" stroke="#124c8b" stroke-width="2" paint-order="stroke">Zayn Exploration</text>
+<text x="250" y="238" font-size="34" fill="#ffdf69">Belajar • Menjelajah • Bermain</text>
+<text x="88" y="335" font-size="27" fill="#fff">Jelajahi dunia pengetahuan dengan cara yang seru!</text>
+</g>
+<g font-family="Arial,sans-serif" font-weight="700" font-size="21" text-anchor="middle">
+<g><rect x="88" y="390" width="135" height="52" rx="25" fill="#fff"/><text x="155" y="424" fill="#15528d">HEWAN</text></g>
+<g><rect x="238" y="390" width="178" height="52" rx="25" fill="#fff"/><text x="327" y="424" fill="#15528d">TUMBUHAN</text></g>
+<g><rect x="431" y="390" width="185" height="52" rx="25" fill="#fff"/><text x="523" y="424" fill="#15528d">INDONESIA</text></g>
+<g><rect x="631" y="390" width="205" height="52" rx="25" fill="#fff"/><text x="733" y="424" fill="#15528d">KENDARAAN</text></g>
+<g><rect x="851" y="390" width="105" height="52" rx="25" fill="#fff"/><text x="903" y="424" fill="#15528d">KUIS</text></g>
+</g>
+<g transform="translate(1010 350)">
+<circle cx="0" cy="-45" r="54" fill="#c4d2df" stroke="#163a5d" stroke-width="5"/><ellipse cx="-47" cy="-43" rx="25" ry="42" fill="#aabccc" stroke="#163a5d" stroke-width="4"/><ellipse cx="47" cy="-43" rx="25" ry="42" fill="#aabccc" stroke="#163a5d" stroke-width="4"/><ellipse cx="0" cy="-25" rx="29" ry="24" fill="#fff"/><circle cx="-18" cy="-55" r="6" fill="#163a5d"/><circle cx="18" cy="-55" r="6" fill="#163a5d"/><ellipse cx="0" cy="-20" rx="9" ry="7" fill="#704a42"/><path d="M-15 -8 Q0 8 15 -8" fill="none" stroke="#704a42" stroke-width="4" stroke-linecap="round"/>
+</g>
+<g transform="translate(1090 470)"><circle r="36" fill="#e9a34f" stroke="#704b2e" stroke-width="4"/><circle cx="-28" cy="-27" r="15" fill="#c97b34"/><circle cx="28" cy="-27" r="15" fill="#c97b34"/><circle cx="-12" cy="-5" r="4" fill="#17324d"/><circle cx="12" cy="-5" r="4" fill="#17324d"/><ellipse cy="11" rx="13" ry="9" fill="#fff0d7"/><path d="M-7 13 Q0 20 7 13" fill="none" stroke="#704b2e" stroke-width="3"/></g>
+<text x="90" y="535" font-family="Arial,sans-serif" font-size="24" fill="#dcefff">Ruang belajar interaktif untuk anak SD</text>
+</svg>
