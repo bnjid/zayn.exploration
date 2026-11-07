@@ -48,6 +48,8 @@ header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdro
 .quiz-panel{background:linear-gradient(120deg,#eaf4ff,#f2efff);border-radius:28px;padding:30px;display:grid;grid-template-columns:.9fr 1.1fr;gap:24px;align-items:center}.quiz-intro .big-emoji{font-size:64px}.quiz-intro h2{margin:8px 0;font-size:29px}.quiz-intro p{color:var(--muted);line-height:1.6}.quiz-box{background:#fff;border-radius:22px;padding:22px;box-shadow:var(--shadow)}.quiz-top{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;font-weight:900}.progress{height:7px;background:#edf1f7;border-radius:99px;margin:12px 0 20px;overflow:hidden}.progress span{height:100%;display:block;background:#69c99b;border-radius:99px;width:0;transition:.3s}.question{font-size:19px;font-weight:900;line-height:1.4;margin:0 0 16px}.answers{display:grid;grid-template-columns:1fr 1fr;gap:9px}.answer{border:1px solid var(--line);background:#fbfdff;border-radius:13px;padding:12px;text-align:left;color:var(--ink);font-weight:800}.answer:hover{border-color:#8bb5f5;background:#f1f7ff}.answer.correct{border-color:#65c99a;background:#e9f9f0}.answer.wrong{border-color:#ff9db1;background:#fff0f3}.feedback{min-height:25px;font-size:13px;font-weight:900;margin-top:12px;color:#418b69}.quiz-actions{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:10px}.next{border:0;border-radius:12px;padding:11px 16px;background:#3979e8;color:white;font-weight:900}.next:disabled{opacity:.4;cursor:not-allowed}.reset{border:0;background:transparent;color:#3979e8;font-weight:900}
 footer{margin-top:25px;background:#18324b;color:#fff;padding:30px 0}.foot{display:flex;justify-content:space-between;gap:20px;align-items:center}.foot p{color:#c3d2e0;font-size:13px;margin:6px 0 0}.foot strong{font-size:18px}
 .empty{grid-column:1/-1;text-align:center;padding:28px;color:var(--muted);background:white;border-radius:18px}
+.info-card{cursor:pointer;transition:transform .18s,box-shadow .18s}.info-card:focus{outline:3px solid #78a9f4;outline-offset:3px}.info-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.modal-backdrop{position:fixed;inset:0;background:rgba(15,35,55,.58);z-index:30;display:none;align-items:center;justify-content:center;padding:18px}.modal-backdrop.open{display:flex}.detail-modal{width:min(520px,100%);background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 24px 70px #102b4650;position:relative}.detail-art{height:170px;display:grid;place-items:center;font-size:86px}.detail-content{padding:22px}.detail-content h3{font-size:25px;margin:10px 0 8px}.detail-content p{color:var(--muted);line-height:1.7;margin:0}.detail-close{position:absolute;right:13px;top:13px;border:0;background:#fff;border-radius:50%;width:38px;height:38px;font-size:22px;color:var(--ink);box-shadow:0 3px 12px #18324b22}.detail-hint{font-size:12px;color:#3979e8;font-weight:800;margin-top:16px}
 @media(max-width:850px){.category-grid,.card-grid{grid-template-columns:repeat(2,1fr)}.hero-panel{padding:34px 28px;grid-template-columns:1fr .7fr}.planet{width:175px;height:175px;font-size:86px}.quiz-panel{grid-template-columns:1fr}.navlinks a{padding:9px 8px}}
 @media(max-width:600px){.wrap{width:min(100% - 26px,1120px)}.nav{height:64px}.brand{font-size:17px}.menu-btn{display:block}.navlinks{display:none;position:absolute;top:64px;left:0;right:0;background:#fff;padding:12px 18px 17px;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch}.navlinks.open{display:flex}.navlinks a{padding:12px}.hero{padding:22px 0 18px}.hero-panel{grid-template-columns:1fr;padding:28px 23px;min-height:0}.hero h1{font-size:39px}.hero p{font-size:14px}.hero-art{min-height:190px;margin-top:10px}.planet{width:155px;height:155px;font-size:77px}.f1{left:9%;top:0}.f2{right:5%;top:10px}.f3{left:8%;bottom:0}.f4{right:8%;bottom:0}.section{padding:24px 0 32px}.section h2{font-size:25px}.category-grid{gap:10px}.category{padding:14px;border-radius:18px}.cat-icon{width:50px;height:50px;font-size:26px}.category strong{font-size:14px}.category small{font-size:11px}.card-grid{gap:10px}.info-art{height:100px;font-size:54px}.info-body{padding:12px}.info-body h3{font-size:15px}.info-body p{font-size:12px}.section-head{align-items:start;flex-direction:column}.quiz-panel{padding:18px}.quiz-box{padding:16px}.answers{grid-template-columns:1fr}.foot{flex-direction:column;align-items:start}}
 </style>
@@ -82,6 +84,13 @@ footer{margin-top:25px;background:#18324b;color:#fff;padding:30px 0}.foot{displa
 <div class="quiz-box"><div class="quiz-top"><span id="quizCount">Pertanyaan 1 dari 5</span><span id="scoreLabel">⭐ 0 poin</span></div><div class="progress"><span id="progressBar"></span></div><p class="question" id="questionText">Memuat pertanyaan...</p><div class="answers" id="answerList"></div><div class="feedback" id="feedback" aria-live="polite"></div><div class="quiz-actions"><span style="font-size:12px;color:#8193a5" id="hint">Pilih satu jawaban yang benar.</span><button class="next" id="nextBtn" disabled>Berikutnya →</button></div></div>
 </div></div></section>
 </main>
+<div class="modal-backdrop" id="detailBackdrop" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+ <div class="detail-modal">
+  <button class="detail-close" id="detailClose" type="button" aria-label="Tutup">×</button>
+  <div class="detail-art" id="detailArt"></div>
+  <div class="detail-content"><span class="tag" id="detailTag"></span><h3 id="detailTitle"></h3><p id="detailDescription"></p><div class="detail-hint">Terus jelajahi materi lainnya di Zayn Exploration! 🌟</div></div>
+ </div>
+</div>
 <footer><div class="wrap foot"><div><strong>🧭 Zayn Exploration</strong><p>Belajar • Menjelajah • Bermain</p></div><p>© <span id="year"></span> Zayn Exploration. Terus semangat belajar! 🌟</p></div></footer>
 <script>
 const items=[
@@ -103,7 +112,28 @@ const items=[
 {n:"Sepeda",c:"Kendaraan",e:"🚲",bg:"linear-gradient(135deg,#e9f8e9,#c8edc9)",d:"Sepeda bergerak dengan tenaga kayuhan manusia dan memiliki dua roda.",t:"Darat"}
 ];
 let activeFilter="Semua";
-function renderCards(){const q=document.getElementById("searchInput").value.toLowerCase().trim();const filtered=items.filter(x=>(activeFilter==="Semua"||x.c===activeFilter)&&[x.n,x.c,x.d,x.t].join(" ").toLowerCase().includes(q));const grid=document.getElementById("cardGrid");grid.innerHTML=filtered.length?filtered.map(x=>'<article class="info-card"><div class="info-art" style="background:'+x.bg+'">'+x.e+'</div><div class="info-body"><span class="tag">'+x.c+' · '+x.t+'</span><h3>'+x.n+'</h3><p>'+x.d+'</p></div></article>').join(""):'<div class="empty">Belum ada materi yang cocok. Coba kata kunci lain ya! 🔎</div>'}
+function renderCards(){const q=document.getElementById("searchInput").value.toLowerCase().trim();const filtered=items.filter(x=>(activeFilter==="Semua"||x.c===activeFilter)&&[x.n,x.c,x.d,x.t].join(" ").toLowerCase().includes(q));const grid=document.getElementById("cardGrid");grid.innerHTML=filtered.length?filtered.map(x=>'<article class="info-card" tabindex="0" role="button" data-item="'+items.indexOf(x)+'" aria-label="Buka detail '+x.n+'"><div class="info-art" style="background:'+x.bg+'">'+x.e+'</div><div class="info-body"><span class="tag">'+x.c+' · '+x.t+'</span><h3>'+x.n+'</h3><p>'+x.d+'</p><p style="margin-top:9px;color:#3979e8;font-weight:800">Ketuk untuk detail →</p></div></article>').join(""):'<div class="empty">Belum ada materi yang cocok. Coba kata kunci lain ya! 🔎</div>'}
+
+function openItemDetail(index){
+ const item=items[index]; if(!item)return;
+ document.getElementById("detailArt").textContent=item.e;
+ document.getElementById("detailArt").style.background=item.bg;
+ document.getElementById("detailTag").textContent=item.c+" · "+item.t;
+ document.getElementById("detailTitle").textContent=item.n;
+ document.getElementById("detailDescription").textContent=item.d;
+ document.getElementById("detailBackdrop").classList.add("open");
+ document.getElementById("detailClose").focus();
+}
+document.getElementById("cardGrid").addEventListener("click",e=>{
+ const card=e.target.closest(".info-card"); if(card)openItemDetail(Number(card.dataset.item));
+});
+document.getElementById("cardGrid").addEventListener("keydown",e=>{
+ if((e.key==="Enter"||e.key===" ")&&e.target.classList.contains("info-card")){e.preventDefault();openItemDetail(Number(e.target.dataset.item));}
+});
+function closeItemDetail(){document.getElementById("detailBackdrop").classList.remove("open");}
+document.getElementById("detailClose").addEventListener("click",closeItemDetail);
+document.getElementById("detailBackdrop").addEventListener("click",e=>{if(e.target.id==="detailBackdrop")closeItemDetail();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeItemDetail();});
 document.getElementById("searchInput").addEventListener("input",renderCards);
 document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{activeFilter=b.dataset.filter;document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===b));renderCards()}));
 document.querySelectorAll(".category").forEach(b=>b.addEventListener("click",()=>{activeFilter=b.dataset.category;document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x.dataset.filter===activeFilter));document.getElementById("searchInput").value="";renderCards();document.getElementById("materi").scrollIntoView({behavior:"smooth"})}));
